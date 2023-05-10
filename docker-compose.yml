@@ -1,0 +1,26 @@
+networks:
+  slp:
+
+services:
+  oracle-db:
+    image: gvenzl/oracle-xe:latest
+    environment:
+      ORACLE_PASSWORD: qwer1234
+    networks:
+      slp:
+        aliases:
+          - oracle-db
+
+  short-link-service:
+    image: bagandov/short-link-service:latest
+    networks:
+      slp:
+        aliases:
+          - sls
+
+  redirect-service:
+    image: bagandov/redirect-service:latest
+    ports:
+      - 30001:8080
+    networks:
+      slp:

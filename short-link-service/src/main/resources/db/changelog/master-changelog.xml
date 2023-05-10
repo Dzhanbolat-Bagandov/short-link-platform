@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="0" author="Dzhanbolat Bagandov">
+        <createTable tableName="link_pair">
+            <column name="short_link" type="VARCHAR2(1024)">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="long_link" type="VARCHAR2(1024)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <insert tableName="link_pair">
+            <column name="short_link" value="1111"/>
+            <column name="long_link" value="https://github.com/Dzhanbolat-Bagandov/short-link-platform"/>
+        </insert>
+
+        <rollback/>
+    </changeSet>
+</databaseChangeLog>
